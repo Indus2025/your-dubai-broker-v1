@@ -149,12 +149,73 @@ body {
   font-size: 3rem;
   color: #fff;
 }
+/* Hero Content Overlay positioned to bottom-left */
+/* Hero Content Overlay on Bottom Left */
+.hero-content.hero-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background-color: rgba(128, 128, 128, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: left;
+  color: #fff;
+  max-width: 400px;
+}
+
+.hero-content.hero-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.hero-content.hero-overlay p {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Animated Button */
+.animated-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #000;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.animated-btn:hover {
+  background-color: #ffcc00;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffd700;
+}
+
+/* Hero Bottom Social Icons on Bottom Right */
+.hero-bottom {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
 
 .social-icons a {
   color: #fff;
-  margin-left: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffd700;
 }
 
 .social-icons a:hover {
