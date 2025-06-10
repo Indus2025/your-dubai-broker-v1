@@ -4,7 +4,8 @@ html {
 /* Basic Layout */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Outfit', thin;
+  font-weight: 200; /* Thin — you can try 100 or 200 */
   background-color: #111;
   color: #fff;
 }
