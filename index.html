@@ -19,7 +19,7 @@
     <!-- Left: Logo -->
     <div class="logo">
   <a href="#hero" scroll-to="#hero">
-    <img src="Image/mk logo.png" alt="Logo" class="logo-img" />
+    <img src="Image/mk logo.png" alt="Mellanie Luxury Real Estate Logo" class="logo-img" />
   </a>
 </div>
     <!-- Center: Navigation -->
@@ -39,13 +39,30 @@
     <div class="nav-btn">
       <a href="#contact" class="inquire-btn">Enquire</a>
     </div>
+    <!-- Mobile Menu Button -->
+<button class="mobile-menu-btn" id="mobileMenuBtn">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#guides">Guides</a></li>
+    <li><a href="#why-work">Why Work With Us</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="inquire-btn">Enquire</a>
+</div>
   </div>
+  
 </header>
 
   <!-- Hero Section with Video -->
   <section class="hero" id="hero">
     <div class="video-container">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline preload="auto">
         <source src="Video/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4" alt/>
         Your browser does not support the video tag.
       </video>
@@ -59,10 +76,10 @@
       <div class="container hero-bottom-flex">
         <h2 class="hero-bottom-heading" >Dubai Real Estate <br> Off Market Access <br>Expert Representation</h2>
         <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
     </div>
@@ -382,6 +399,31 @@
   });
 </script>
 
-
+<script>
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    if (mobileMenu.classList.contains('active')) {
+      mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+      document.body.style.overflow = 'hidden';
+    } else {
+      mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Close menu when clicking a link
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>

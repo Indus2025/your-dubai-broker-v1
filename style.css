@@ -4,8 +4,8 @@ html {
 /* Basic Layout */
 body {
   margin: 0;
-  font-family: 'Outfit', thin;
-  font-weight: 200; /* Thin — you can try 100 or 200 */
+  font-family: 'Outfit', sans-serif;
+  font-weight: 200;
   background-color: #111;
   color: #fff;
 }
@@ -109,7 +109,7 @@ body {
 
 .video-container video {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin-top: 2%;
   object-fit: cover;
 }
@@ -134,10 +134,13 @@ body {
 
 /* Hero Bottom Overlay */
 .hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
-  bottom: 2rem;
+  bottom: 20px;
   width: 100%;
-  z-index: 2;
+  padding: 0 20px;
 }
 
 .hero-bottom-flex {
@@ -198,11 +201,7 @@ body {
 }
 
 /* Hero Bottom Social Icons on Bottom Right */
-.hero-bottom {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-}
+
 
 .social-icons {
   display: flex;
@@ -255,10 +254,10 @@ body {
 }
 
 /* Agent image pinned to bottom left */
-.award-agent img {
-  max-height: 400px; /* adjust max-height as needed */
+.award-agent-image img {
+  max-height: 500px;
   object-fit: contain;
-  margin-bottom: 0; /* ensure no margin below */
+  margin-bottom: 0;
 }
 
 /* Text on right */
@@ -275,7 +274,7 @@ body {
   align-items: flex-end; /* align agent image and text vertically */
   justify-content: space-between;
   position: relative;
-  z-index: 3;
+  z-index: 2;
   padding: 10px 40px; /* adjust padding as needed */
 }
 .award-text h3 {
@@ -305,32 +304,6 @@ body {
   margin: 0 2px;
 }
     
-
-/* Responsive */
-@media (max-width: 768px) {
-  .awards-container {
-    flex-direction: column;
-    justify-content: flex-end;
-    height: auto;
-    padding: 20px;
-  }
-
-  .award-agent-image img {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    max-width: 70%;
-    margin: 0 auto;
-  }
-
-  .award-text {
-    text-align: center;
-    padding-left: 0;
-    margin-top: 20px;
-  }
-}
-
-
 
 /* About Section Flex Layout */
 .about-section {
@@ -705,8 +678,209 @@ body {
 /* Footer */
 .footer {
   background-color: #000;
-  padding: .2rem 0;
+  color: #aaa;
+  padding: 20px 0;
   text-align: center;
-  color: #777;
   font-size: 0.9rem;
+}
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu.active {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-menu ul li {
+  margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.mobile-menu ul li a:hover {
+  color: #C0A062;
+}
+
+.mobile-menu .inquire-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+}
+
+/* Responsive Hero Section */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .hero-bottom-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .hero-bottom-heading {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive Awards Section */
+@media (min-width: 768px) {
+  /* Desktop styles if needed */
+  .awards-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .award-agent-image img{
+    order: 2;
+  }
+  .award-text {
+    order: 1;
+    text-align: center;
+  }
+}
+  
+  /* .award-text h3 {
+    font-size: 2rem;
+  }
+  
+  .star-icon {
+    width: 25px;
+  }
+  
+  .award-background img {
+    height: auto;
+    min-height: 500px;
+    object-position: center;
+  } */
+
+
+/* Responsive Header */
+@media (max-width: 992px) {
+  .nav-center {
+    display: none;
+  }
+  
+  .nav-btn {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .header-flex {
+    justify-content: space-between;
+  }
+}
+
+/* Responsive Team Section */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive About Section */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+  
+  .about-text, 
+  .about-image {
+    flex: 1 1 100%;
+  }
+  
+  .about-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Responsive Contact Section */
+@media (max-width: 768px) {
+  .contact-us-container {
+    flex-direction: column;
+  }
+  
+  .contact-info,
+  .contact-form {
+    width: auto;
+    margin-bottom: 30px;
+  }
+}
+
+/* Responsive Guides Section */
+@media (max-width: 768px) {
+  .guides-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .guides-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive Accordion */
+@media (max-width: 768px) {
+  .accordion-grid {
+    grid-template-columns: 1fr;
+  }
 }
